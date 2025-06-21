@@ -1,13 +1,15 @@
+@use "../base/variables";
+
 .search {
   width: 100%;
   max-width: 80rem;
   margin: 0 auto 6rem;
-  
+
   input {
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 1rem;
-    border: 1px solid $light-brown;
+    border: 1px solid variables.$light-brown;
     font-size: 1.6rem;
   }
 }
