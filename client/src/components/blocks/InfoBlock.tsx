@@ -1,4 +1,4 @@
-import { StrapiImage } from "../StrapiImage";
+import { StrapiImage } from "@/components/StrapiImage";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 
