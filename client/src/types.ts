@@ -74,3 +74,10 @@ export interface SubscribeProps extends Base<"blocks.subscribe"> {
   placeholder: string;
   buttonText: string;
 }
+
+export interface SubscribeState {
+  zodErrors: Record<string, string[]> | null;
+  strapiErrors: Record<string, string> | null;
+  errorMessage: string | null;
+  successMessage: string | null;
+}
