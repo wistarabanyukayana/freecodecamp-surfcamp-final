@@ -1,6 +1,7 @@
 import qs from "qs";
 import { fetchAPI } from "@/utils/fetch-api";
 import { getStrapiURL } from "@/utils/get-strapi-url";
+import { fi } from "zod/v4/locales";
 
 const BASE_URL = getStrapiURL();
 
@@ -138,5 +139,23 @@ export async function getGlobalSettings() {
   const path = "/api/global";
   const url = new URL(path, BASE_URL);
   url.search = globalSettingQuery;
+  return fetchAPI(url.href, { method: "GET" });
+}
+
+export async function getContent(path: string, featured?: boolean) {
+  const url = new URL(path, BASE_URL);
+
+  url.search = qs.stringify({
+    sort: ["createdAt:desc"],
+    filters: {
+      ...(featured && { featured: { $eq: featured } }),
+    },
+    populate: {
+      image: {
+        fields: ["url", "alternativeText"],
+      },
+    },
+  });
+
   return fetchAPI(url.href, { method: "GET" });
 }

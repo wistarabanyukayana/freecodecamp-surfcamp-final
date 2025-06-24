@@ -81,3 +81,17 @@ export interface SubscribeState {
   errorMessage: string | null;
   successMessage: string | null;
 }
+
+export interface ArticleProps {
+  id: number;
+  documentId: string;
+  title: string;
+  description: string;
+  slug: string;
+  image: ImageProps;
+  author: string;
+  featured: boolean;
+  publishedAt: string;
+  createdAt: string;
+  updatedAt: string;
+}
