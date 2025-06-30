@@ -21,7 +21,11 @@ type ComponentType =
   | "blocks.hero-section"
   | "blocks.info-block"
   | "blocks.featured-article"
-  | "blocks.subscribe";
+  | "blocks.subscribe"
+  | "blocks.heading"
+  | "blocks.paragraph-with-image"
+  | "blocks.paragraph"
+  | "blocks.full-image";
 
 interface Base<
   T extends ComponentType,
@@ -40,7 +44,11 @@ export type Block =
   | HeroSectionProps
   | InfoBlockProps
   | FeaturedArticleProps
-  | SubscribeProps;
+  | SubscribeProps
+  | HeadingProps
+  | ParagraphWithImageProps
+  | ParagraphProps
+  | FullImageProps;
 
 export interface HeroSectionProps extends Base<"blocks.hero-section"> {
   theme: "turquoise" | "orange";
@@ -73,6 +81,29 @@ export interface SubscribeProps extends Base<"blocks.subscribe"> {
   content: string;
   placeholder: string;
   buttonText: string;
+}
+
+export interface HeadingProps extends Base<"blocks.heading"> {
+  heading: string;
+  linkId?: string;
+}
+
+export interface ParagraphWithImageProps
+  extends Base<"blocks.paragraph-with-image"> {
+  content: string;
+  image: ImageProps;
+  reversed?: boolean;
+  imageLandscape?: boolean;
+}
+
+export interface ParagraphProps extends Base<"blocks.paragraph"> {
+  content: string;
+}
+
+export interface FullImageProps extends Base<"blocks.full-image"> {
+  id: number;
+  __component: "blocks.full-image";
+  image: ImageProps;
 }
 
 export interface SubscribeState {
