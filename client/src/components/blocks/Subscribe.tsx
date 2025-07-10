@@ -22,10 +22,11 @@ export function Subscribe({
   );
 
   console.log("Form state:", formState);
-  const zodErrors = formState?.zodErrors?.email?.[0];
+  const zodErrors = formState?.zodErrors;
   const strapiErrors = formState?.strapiErrors?.message;
 
-  const errorMessage = zodErrors || strapiErrors || formState?.errorMessage;
+  const errorMessage =
+    zodErrors?.email?.[0] || strapiErrors || formState?.errorMessage;
   const successMessage = formState?.successMessage;
 
   return (

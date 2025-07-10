@@ -113,6 +113,21 @@ export interface SubscribeState {
   successMessage: string | null;
 }
 
+export interface EventSubscribeForm {
+  firstName: FormDataEntryValue | null;
+  lastName: FormDataEntryValue | null;
+  email: FormDataEntryValue | null;
+  telephone: FormDataEntryValue | null;
+}
+
+export interface EventSubscribeState {
+  zodErrors: Record<string, string[]> | null;
+  strapiErrors: Record<string, string> | null;
+  errorMessage: string | null;
+  successMessage: string | null;
+  formData: EventSubscribeForm | null;
+}
+
 export interface ArticleProps {
   id: number;
   documentId: string;
@@ -122,6 +137,22 @@ export interface ArticleProps {
   image: ImageProps;
   author: string;
   featured: boolean;
+  publishedAt: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface EventProps {
+  id: number;
+  documentId: string;
+  title: string;
+  description: string;
+  slug: string;
+  image: ImageProps;
+  author: string;
+  featured: boolean;
+  price: string;
+  startDate: string;
   publishedAt: string;
   createdAt: string;
   updatedAt: string;
